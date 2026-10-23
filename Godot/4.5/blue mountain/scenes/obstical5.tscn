@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://lnxkfm3ytj4m"]
+
+[ext_resource type="Texture2D" uid="uid://bm1tn51hc1ppl" path="res://assests/Sprite-00055.png" id="1_lm3cx"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(-10.400002, -121.14)
+texture = ExtResource("1_lm3cx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-10.400002, -121.14)
+polygon = PackedVector2Array(8.800003, -58, -33.199997, -58, -33.199997, -41, -13.199997, -41, -13.199997, -10, -42.199997, -10, -42.199997, 7, -13.199997, 7, -13.599998, 58.199997, 9.400002, 58.199997, 9.800003, 2, 55.800003, 2, 55.800003, -12, 8.800003, -12)
