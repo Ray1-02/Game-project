@@ -1,0 +1,254 @@
+[gd_scene load_steps=12 format=3 uid="uid://cr1vby1x1gebr"]
+
+[ext_resource type="Texture2D" uid="uid://baowyj7xdaa7y" path="res://assets/settings/pannel.png" id="1_dj8aq"]
+[ext_resource type="Script" uid="uid://dhu7xiiyda47q" path="res://script/UI.gd" id="1_ro3t7"]
+[ext_resource type="FontFile" uid="uid://chq2kgkjaoav0" path="res://font/Kurohe (OTF).otf" id="3_5en4g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro3t7"]
+texture = ExtResource("1_dj8aq")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="FontVariation" id="FontVariation_5en4g"]
+base_font = ExtResource("3_5en4g")
+spacing_glyph = 2
+
+[sub_resource type="Theme" id="Theme_dj8aq"]
+default_font = SubResource("FontVariation_5en4g")
+default_font_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro3t7"]
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.54901963)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5en4g"]
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.54901963)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj8aq"]
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.54901963)
+
+[sub_resource type="InputEventKey" id="InputEventKey_5en4g"]
+device = -1
+pressed = true
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_ua6yw"]
+events = [SubResource("InputEventKey_5en4g")]
+
+[node name="UI" type="Node2D"]
+script = ExtResource("1_ro3t7")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -29.5
+offset_right = 70.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ro3t7")
+
+[node name="main_menu" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dj8aq")
+theme_override_constants/separation = 0
+
+[node name="start" type="Button" parent="PanelContainer/main_menu"]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_ro3t7")
+action_mode = 0
+text = "START"
+flat = true
+
+[node name="conntrol" type="Button" parent="PanelContainer/main_menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../start")
+focus_neighbor_bottom = NodePath("../exit")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_5en4g")
+action_mode = 0
+text = "CONTROLS"
+flat = true
+
+[node name="exit" type="Button" parent="PanelContainer/main_menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dj8aq")
+action_mode = 0
+text = "EXIT"
+flat = true
+
+[node name="pause_menu" type="VBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_dj8aq")
+theme_override_constants/separation = 0
+
+[node name="resume" type="Button" parent="PanelContainer/pause_menu"]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_ro3t7")
+action_mode = 0
+text = "RESUME"
+flat = true
+
+[node name="conntrol" type="Button" parent="PanelContainer/pause_menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../resume")
+focus_neighbor_bottom = NodePath("../exit")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_5en4g")
+action_mode = 0
+text = "CONTROLS"
+flat = true
+
+[node name="exit" type="Button" parent="PanelContainer/pause_menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dj8aq")
+action_mode = 0
+text = "EXIT"
+flat = true
+
+[node name="control" type="HBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_dj8aq")
+theme_override_constants/separation = 0
+
+[node name="ACTION" type="Label" parent="PanelContainer/control"]
+custom_minimum_size = Vector2(125, 62)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = 1
+text = "  RIGHT-------------------
+  LEFT--------------------
+  JUMP--------------------
+  PARRY-------------------
+  ATTACK------------------
+  DODGE-------------------"
+vertical_alignment = 1
+uppercase = true
+
+[node name="INPUT" type="Label" parent="PanelContainer/control"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = 1
+text = "D
+A
+SPACE
+RIGHT CLICK
+LEFT CLICK
+SHIFT"
+uppercase = true
+
+[node name="BACK" type="Button" parent="PanelContainer/control"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dj8aq")
+action_mode = 0
+shortcut = SubResource("Shortcut_ua6yw")
+flat = true
+
+[node name="restart_menu" type="VBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_dj8aq")
+theme_override_constants/separation = 0
+
+[node name="restart" type="Button" parent="PanelContainer/restart_menu"]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_ro3t7")
+action_mode = 0
+text = "RESTART"
+flat = true
+
+[node name="conntrol" type="Button" parent="PanelContainer/restart_menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../restart")
+focus_neighbor_bottom = NodePath("../exit")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_5en4g")
+action_mode = 0
+text = "CONTROLS"
+flat = true
+
+[node name="exit" type="Button" parent="PanelContainer/restart_menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../conntrol")
+theme_override_colors/font_color = Color(0.26666668, 0.65882355, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dj8aq")
+action_mode = 0
+text = "EXIT"
+flat = true
+
+[connection signal="pressed" from="PanelContainer/main_menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/main_menu/conntrol" to="." method="_on_conntrol_pressed"]
+[connection signal="pressed" from="PanelContainer/main_menu/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelContainer/pause_menu/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/pause_menu/conntrol" to="." method="_on_conntrol_pressed"]
+[connection signal="pressed" from="PanelContainer/pause_menu/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelContainer/control/BACK" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PanelContainer/restart_menu/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/restart_menu/conntrol" to="." method="_on_conntrol_pressed"]
+[connection signal="pressed" from="PanelContainer/restart_menu/exit" to="." method="_on_exit_pressed"]

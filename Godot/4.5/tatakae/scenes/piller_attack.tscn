@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmcsfjgsvq4qt"]
+
+[ext_resource type="Script" uid="uid://ju85xum18xe2" path="res://script/piller_attack.gd" id="1_60wkv"]
+[ext_resource type="Texture2D" uid="uid://dxlunegii3jm6" path="res://assets/Enemy/enemy_attacks/piller.png" id="1_fneqx"]
+
+[sub_resource type="Curve" id="Curve_60wkv"]
+_limits = [-22.5, 22.5, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, -219.69916, 0, 0, Vector2(1, 1), -212.03693, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i825f"]
+curve = SubResource("Curve_60wkv")
+
+[sub_resource type="Gradient" id="Gradient_fneqx"]
+colors = PackedColorArray(0, 0, 0, 1, 6.738305e-07, 0.31562084, 0.8322017, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_60wkv"]
+gradient = SubResource("Gradient_fneqx")
+
+[sub_resource type="Curve" id="Curve_fneqx"]
+_data = [Vector2(0.013661206, 1), 0.0, 0.0, 0, 0, Vector2(0.035519123, 0), -5.883883, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_60wkv"]
+curve_x = SubResource("Curve_fneqx")
+
+[sub_resource type="Curve" id="Curve_t5s5m"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 13.912041, 0, 0, Vector2(1, 1), 26.200886, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ew728"]
+curve = SubResource("Curve_t5s5m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_60wkv"]
+particle_flag_disable_z = true
+angular_velocity_curve = SubResource("CurveTexture_i825f")
+directional_velocity_min = -150.00002
+directional_velocity_max = 149.99998
+directional_velocity_curve = SubResource("CurveXYZTexture_60wkv")
+orbit_velocity_curve = SubResource("CurveTexture_ew728")
+gravity = Vector3(0, -100, 0)
+color = Color(0, 0.7735731, 1, 1)
+color_ramp = SubResource("GradientTexture1D_60wkv")
+hue_variation_min = 0.17999998
+hue_variation_max = 0.17999998
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fneqx"]
+size = Vector2(11.5, 0)
+
+[node name="piller_attack" type="Node2D"]
+z_index = 4
+script = ExtResource("1_60wkv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+texture = ExtResource("1_fneqx")
+lifetime = 2.4
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_60wkv")
+
+[node name="damage" type="Area2D" parent="."]
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage"]
+shape = SubResource("RectangleShape2D_fneqx")
+
+[connection signal="area_entered" from="damage" to="." method="_on_damage_area_entered"]

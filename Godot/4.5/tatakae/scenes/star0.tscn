@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://ce7wqp37vg3w7"]
+
+[ext_resource type="Texture2D" uid="uid://diyhplorg0m43" path="res://assets/world/star.png" id="1_0p1ok"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdk3y"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12qy2"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh0le"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfvrw"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfbmh"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sdhu"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7bd8"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acp2v"]
+atlas = ExtResource("1_0p1ok")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skxoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdk3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12qy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh0le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfvrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfbmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sdhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7bd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acp2v")
+}],
+"loop": false,
+"name": &"star0",
+"speed": 5.0
+}]
+
+[node name="star_mid" type="AnimatedSprite2D"]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_skxoq")
+animation = &"star0"
+autoplay = "star0"
+speed_scale = 2.5

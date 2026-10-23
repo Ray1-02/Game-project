@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmaqw7n3gnqli"]
+
+[ext_resource type="Texture2D" uid="uid://diyhplorg0m43" path="res://assets/world/star.png" id="1_vlbh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_402no"]
+atlas = ExtResource("1_vlbh1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vncv"]
+atlas = ExtResource("1_vlbh1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifcva"]
+atlas = ExtResource("1_vlbh1")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grokd"]
+atlas = ExtResource("1_vlbh1")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egieh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_402no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vncv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifcva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grokd")
+}],
+"loop": false,
+"name": &"0star",
+"speed": 5.0
+}]
+
+[node name="star_blink" type="AnimatedSprite2D"]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_egieh")
+animation = &"0star"
+autoplay = "0star"
+speed_scale = 2.5

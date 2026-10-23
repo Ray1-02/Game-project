@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://b11nq8fnctys3"]
+
+[ext_resource type="Texture2D" uid="uid://diyhplorg0m43" path="res://assets/world/star.png" id="1_mcqwg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6vao"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef0hr"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d8bx"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lrp4"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxbdi"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pexwv"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi7gj"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwpl5"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt5mf"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpmlc"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lj1jy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6vao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef0hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d8bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lrp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxbdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pexwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi7gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwpl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt5mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpmlc")
+}],
+"loop": false,
+"name": &"star",
+"speed": 5.0
+}]
+
+[node name="star_large" type="AnimatedSprite2D"]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_lj1jy")
+animation = &"star"
+autoplay = "star"
+frame_progress = 0.044696644
+speed_scale = 2.5

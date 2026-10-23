@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://q532lv08sfo4"]
+
+[ext_resource type="Texture2D" uid="uid://b17rb8yu05bsr" path="res://assets/Enemy/enemy_attacks/enemy_attact-4.png" id="1_h1vp8"]
+[ext_resource type="Script" uid="uid://b5ie0knvoxd2r" path="res://script/drop_attack.gd" id="1_jkv26"]
+[ext_resource type="Curve" uid="uid://de1xoejyar1ot" path="res://curve/drop_attack_dv_curv_x.tres" id="3_kaifb"]
+
+[sub_resource type="Gradient" id="Gradient_jkv26"]
+offsets = PackedFloat32Array(0.21105528, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kaifb"]
+gradient = SubResource("Gradient_jkv26")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_1hesf"]
+curve_x = ExtResource("3_kaifb")
+
+[sub_resource type="Curve" id="Curve_pg7im"]
+_data = [Vector2(0.15972222, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -12.634122, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ghtou"]
+curve = SubResource("Curve_pg7im")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h5y6t"]
+particle_flag_disable_z = true
+directional_velocity_min = -200.00002
+directional_velocity_max = 199.99998
+directional_velocity_curve = SubResource("CurveXYZTexture_1hesf")
+gravity = Vector3(0, -100, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ghtou")
+color = Color(0, 0.9136464, 0.9136461, 1)
+color_ramp = SubResource("GradientTexture1D_kaifb")
+hue_variation_min = -0.78000003
+hue_variation_max = -0.78000003
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv26"]
+size = Vector2(47, 42)
+
+[node name="drop_attack" type="Node2D"]
+script = ExtResource("1_jkv26")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 300
+texture = ExtResource("1_h1vp8")
+lifetime = 1.1
+preprocess = 0.4
+process_material = SubResource("ParticleProcessMaterial_h5y6t")
+
+[node name="damage" type="Area2D" parent="."]
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage"]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_jkv26")
+
+[connection signal="area_entered" from="damage" to="." method="_on_damage_area_entered"]
